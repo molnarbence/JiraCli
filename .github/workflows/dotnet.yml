@@ -1,0 +1,26 @@
+name: .NET
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  pack-and-push:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 9.0.x
+      - name: Pack
+        run: dotnet pack ./src/ConsoleApp -p:PackageVersion=0.1.$GITHUB_RUN_NUMBER
+      # login to nuget github package registry
+      - name: Publish to GitHub Packages
+        run: |
+          dotnet nuget push "./src/ConsoleApp/packages/*.nupkg" \
+            --api-key ${{ secrets.GITHUB_TOKEN }} \
+            --source https://nuget.pkg.github.com/${{ github.repository_owner }}
