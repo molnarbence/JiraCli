@@ -2,9 +2,9 @@
 using System.Text;
 using Microsoft.Extensions.Options;
 
-namespace ConsoleApp;
+namespace JiraSdk;
 
-public class AuthenticationHeaderDelegatingHandler(IOptions<ApplicationConfiguration> config) : DelegatingHandler
+public class AuthenticationHeaderDelegatingHandler(IOptions<JiraSdkConfiguration> config) : DelegatingHandler
 {
     protected override Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
     {

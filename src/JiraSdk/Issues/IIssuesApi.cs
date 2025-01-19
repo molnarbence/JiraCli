@@ -1,6 +1,6 @@
 ﻿using Refit;
 
-namespace ConsoleApp.Issues;
+namespace JiraSdk.Issues;
 
 public interface IIssuesApi
 {

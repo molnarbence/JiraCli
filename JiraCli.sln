@@ -7,6 +7,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{232AF0BF-28C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp", "src\ConsoleApp\ConsoleApp.csproj", "{542E96F5-C177-4743-9CD6-73A54C93C71C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JiraSdk", "src\JiraSdk\JiraSdk.csproj", "{CC3C2B0B-2A99-4BF1-8AEC-D4F3BCE72464}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,11 +19,16 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{542E96F5-C177-4743-9CD6-73A54C93C71C} = {232AF0BF-28CE-4353-8DC9-E1AC340F1243}
+		{CC3C2B0B-2A99-4BF1-8AEC-D4F3BCE72464} = {232AF0BF-28CE-4353-8DC9-E1AC340F1243}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{542E96F5-C177-4743-9CD6-73A54C93C71C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{542E96F5-C177-4743-9CD6-73A54C93C71C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{542E96F5-C177-4743-9CD6-73A54C93C71C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{542E96F5-C177-4743-9CD6-73A54C93C71C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC3C2B0B-2A99-4BF1-8AEC-D4F3BCE72464}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC3C2B0B-2A99-4BF1-8AEC-D4F3BCE72464}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC3C2B0B-2A99-4BF1-8AEC-D4F3BCE72464}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC3C2B0B-2A99-4BF1-8AEC-D4F3BCE72464}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

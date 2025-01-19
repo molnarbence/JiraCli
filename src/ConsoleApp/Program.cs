@@ -1,5 +1,6 @@
 ﻿using ConsoleApp;
-using ConsoleApp.Issues;
+using JiraSdk;
+using JiraSdk.Issues;
 using MbUtils.Extensions.CommandLineUtils;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -15,19 +16,7 @@ wrapper.HostBuilder.ConfigureAppConfiguration((_, builder) =>
     builder.AddJsonFile(Path.Combine(appDataFolder, "appsettings.json"), optional: true);
 });
 
-wrapper.HostBuilder.ConfigureServices((context, services) =>
-{
-    var configuration = context.Configuration.Get<ApplicationConfiguration>() 
-                        ?? throw new ApplicationException("Configuration is missing");
-    
-    services.AddOptions<ApplicationConfiguration>().Bind(context.Configuration);
-
-    // setup API
-    services.AddTransient<AuthenticationHeaderDelegatingHandler>();
-    services.AddRefitClient<IIssuesApi>()
-        .ConfigureHttpClient(client => client.BaseAddress = new Uri($"{configuration.BaseUrl}/issue"))
-        .AddHttpMessageHandler<AuthenticationHeaderDelegatingHandler>();
-});
+wrapper.HostBuilder.ConfigureServices((context, services) => services.AddJiraSdk(context.Configuration));
 
 return await wrapper.ExecuteAsync();
 

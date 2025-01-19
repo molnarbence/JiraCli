@@ -1,4 +1,4 @@
-﻿namespace ConsoleApp.Issues;
+﻿namespace JiraSdk.Issues;
 
 public record BasicIssue(BasicIssueFields Fields);
 

@@ -1,4 +1,5 @@
 ﻿using ConsoleApp.Issues;
+using JiraSdk.Issues;
 using McMaster.Extensions.CommandLineUtils;
 
 namespace ConsoleApp;
