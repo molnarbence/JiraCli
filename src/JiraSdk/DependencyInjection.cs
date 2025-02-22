@@ -1,4 +1,5 @@
 ﻿using JiraSdk.Issues;
+using JiraSdk.Search;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Refit;
@@ -17,6 +18,10 @@ public static class DependencyInjection
         services.AddTransient<AuthenticationHeaderDelegatingHandler>();
         services.AddRefitClient<IIssuesApi>()
             .ConfigureHttpClient(client => client.BaseAddress = new Uri($"{jiraConfiguration.BaseUrl}/issue"))
+            .AddHttpMessageHandler<AuthenticationHeaderDelegatingHandler>();
+        
+        services.AddRefitClient<ISearchApi>()
+            .ConfigureHttpClient(client => client.BaseAddress = new Uri($"{jiraConfiguration.BaseUrl}/search"))
             .AddHttpMessageHandler<AuthenticationHeaderDelegatingHandler>();
         return services;
     }
